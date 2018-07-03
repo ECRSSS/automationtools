@@ -1,0 +1,5 @@
+WinWaitActive("The Internet - Google Chrome","",20)
+Send($CmdLine[1])
+Send("{TAB}")
+Send($CmdLine[2])
+Send("{Enter}")

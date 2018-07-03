@@ -1,10 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite1" parallel="tests" verbose="1" thread-count="10">
-    <test name="Regression1" parallel="methods">
+<suite name="SuiteHerokuChrome">
+    <test name="HerokuChrome">
         <classes>
-            <class name="Test1"></class>
+            <class name="theinternet.herokuapp.Tests.HerokuTestSuite">
+                <parameter name="browser" value="chrome"/>
+            </class>
         </classes>
     </test>
+
+<test name="HerokuFirefox">
+    <classes>
+        <class name="theinternet.herokuapp.Tests.HerokuTestSuite">
+            <parameter name="browser" value="firefox"/>
+        </class>
+    </classes>
+</test>
 
 </suite>

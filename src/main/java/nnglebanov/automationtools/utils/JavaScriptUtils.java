@@ -4,6 +4,10 @@ import nnglebanov.automationtools.driverfactory.DriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.ArrayList;
 
 /**
  * Created by WE on 26.06.2018.
@@ -44,5 +48,22 @@ public class JavaScriptUtils {
     public static boolean isAjaxReady(WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor)driver;
         return (Boolean)js.executeScript("return jQuery.active == 0");
+    }
+
+    public static String openNewWindow()
+    {
+        WebDriver driver=DriverFactory.getInstance().getDriver();
+        String mainTab=driver.getWindowHandle();
+        JavaScriptUtils.execute("window.open();");
+        ArrayList<String> newTab=new ArrayList<>(driver.getWindowHandles());
+        newTab.remove(mainTab);
+        driver.switchTo().window(newTab.get(0));
+        return mainTab;
+    }
+    public static void closeNewWindow(String mainTab)
+    {
+        WebDriver driver=DriverFactory.getInstance().getDriver();
+        driver.close();
+        driver.switchTo().window(mainTab);
     }
 }

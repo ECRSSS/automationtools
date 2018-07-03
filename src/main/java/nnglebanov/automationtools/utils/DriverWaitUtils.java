@@ -33,6 +33,12 @@ public class DriverWaitUtils {
                 ExpectedConditions.visibilityOfElementLocated(by)));
     }
 
+    public static void waitForPageReady(WebDriver driver,int timer)
+    {
+        new WebDriverWait(driver, timer).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+    }
+
     public static void waitForGone(By by,
                                    int timer)
             throws Exception {

@@ -99,6 +99,8 @@ public class DriverFactory {
 
                     caps = OptionsFactory.getOptions(browser);
 
+
+
                         System.setProperty("webdriver.ie.driver", props.getProperty("ie.driver.windows.path"));
                         webDriver.set(new InternetExplorerDriver((InternetExplorerOptions) caps));
 
@@ -108,7 +110,7 @@ public class DriverFactory {
         {
                 caps=OptionsFactory.getOptions(browser);
                 String url=props.getProperty("remote.url");
-                RemoteWebDriver driver = new RemoteWebDriver(new URL(url), DesiredCapabilities.chrome());
+                RemoteWebDriver driver = new RemoteWebDriver(new URL(url), caps);
                 webDriver.set(driver);
         }
 

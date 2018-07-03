@@ -18,4 +18,13 @@ public enum Browsers {
         return this.name;
     }
 
+    public static Browsers fromString(String text) {
+        for (Browsers b : Browsers.values()) {
+            if (b.name.equalsIgnoreCase(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
 }

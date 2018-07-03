@@ -67,6 +67,13 @@ public class OptionsFactory {
             {
                 DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 
+                caps.setCapability("nativeEvents", false);
+                caps.setCapability("unexpectedAlertBehaviour", "accept");
+                caps.setCapability("ignoreProtectedModeSettings", true);
+                caps.setCapability("disable-popup-blocking", true);
+                caps.setCapability("enablePersistentHover", true);
+                caps.setCapability("ignoreZoomSetting", true);
+
                 InternetExplorerOptions ieOpts = new InternetExplorerOptions();
 
                 ieOpts.requireWindowFocus();
